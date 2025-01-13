@@ -26,7 +26,7 @@ namespace TehProgKursovaya
         private double canvasWidth;
         private bool isRedCircleActive = true;
         private DispatcherTimer timer;
-        private bool isFirstCycleCompleted = false; // Флаг для отслеживания завершения первого цикла
+        private bool isFirstCycleCompleted = false; // Флаг для отслеживания завершения цикла
         public MainWindow()
         {
             InitializeComponent();
@@ -41,13 +41,6 @@ namespace TehProgKursovaya
 
         private void InitializeCircles()
         {
-            // Проверяем, что Canvas существует
-            if (MyCanvas == null)
-            {
-                MessageBox.Show("Canvas не найден!");
-                return;
-            }
-
             canvasWidth = MyCanvas.ActualWidth;
 
             // Создаем красный круг
@@ -76,13 +69,6 @@ namespace TehProgKursovaya
 
         private void StartRace()
         {
-            // Проверяем, что круги созданы
-            if (redCircle == null || blueCircle == null)
-            {
-                MessageBox.Show("Круги не были созданы!");
-                return;
-            }
-
             // Настраиваем таймер для анимации
             timer = new DispatcherTimer
             {
